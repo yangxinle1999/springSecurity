@@ -15,7 +15,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/").permitAll() //进行路径匹配，访问首页的请求，谁都可以访问
                 .antMatchers("/level1/**").hasRole("VIP1")  //要想访问level1/**下的所有页面，必须具有VIP1角色
                 .antMatchers("/level2/**").hasRole("VIP2")  //要想访问level2/**下的所有页面，必须具有VIP2角色
-                .antMatchers("/level3/**").hasRole("VIP3"); //要想访问level3/**下的所有页面，必须具有VIP3角色
+                .antMatchers("/level3/**").hasRole("VIP3") //要想访问level3/**下的所有页面，必须具有VIP3角色
+                .antMatchers("/level4/**").hasRole("VIP4");
 
         //开启自动配置的登陆功能，效果：如果没有登陆，没有权限就会来到登陆页面（自动为我们创建）
         http.formLogin().usernameParameter("user").passwordParameter("pwd")
